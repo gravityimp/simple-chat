@@ -5,10 +5,19 @@ import {
   CiCircleChevDown,
   CiCircleChevUp,
   CiSettings,
+  CiSearch,
+  CiMenuKebab,
+  CiFaceSmile,
+  CiPaperplane,
 } from "react-icons/ci";
 
 import { MdVerified } from "react-icons/md";
 import Block from "./components/Block";
+
+const now = new Date().toLocaleTimeString("en-US", {
+  hour: "numeric",
+  minute: "numeric",
+});
 
 function App() {
   return (
@@ -16,16 +25,24 @@ function App() {
       {/* Left side */}
       <div className="w-1/4 h-full py-0.5 px-2 bg-zinc-700 relative">
         <div className="w-full py-2 border-b-2 border-zinc-800">
-          <div className="w-full h-16 py-1 px-2 rounded-md bg-zinc-800 flex items-center">
-            <div className="w-12 h-12 min-w-[3rem] mr-2 rounded-full bg-slate-300"></div>
-            <div className="w-full flex flex-col">
-              <p className="text-gray-200 text-lg">Gravity Impulse</p>
-              <p className="text-gray-500 text-sm">@gravityimpulse</p>
-            </div>
-            <CiMenuBurger className="w-12 h-6 min-w-[2rem] text-gray-200" />
-          </div>
+          <UserBlock>
+            <UserBlock.Avatar name="Gravity Impulse" />
+            <UserBlock.Body>
+              <UserBlock.Content>
+                <span>Gravity Impulse</span>
+              </UserBlock.Content>
+              <UserBlock.SubContent>
+                <span>@gavityimpulse</span>
+              </UserBlock.SubContent>
+            </UserBlock.Body>
+            <UserBlock.Tail>
+              <Block.Icon>
+                <CiMenuBurger />
+              </Block.Icon>
+            </UserBlock.Tail>
+          </UserBlock>
         </div>
-        {/* Here goes chats */}
+        {/* Friends/Groups Section */}
         <div className="w-full h-full py-1 overflow-y-auto">
           <UserBlock animate hover>
             <UserBlock.Avatar name="Friend XD">
@@ -42,7 +59,7 @@ function App() {
             </UserBlock.Body>
             <UserBlock.Tail>
               <div className="min-w-[5rem] h-12 flex flex-col items-end">
-                <p className="text-gray-500 text-xs leading-7">10:41 PM</p>
+                <p className="text-gray-500 text-xs leading-7">{now}</p>
                 <p className="text-sky-500 text-xs leading-5">Seen</p>
               </div>
             </UserBlock.Tail>
@@ -63,7 +80,7 @@ function App() {
             </UserBlock.Body>
             <UserBlock.Tail>
               <div className="min-w-[5rem] h-12 flex flex-col items-end">
-                <p className="text-gray-500 text-xs leading-7">10:41 PM</p>
+                <p className="text-gray-500 text-xs leading-7">{now}</p>
                 <p className="text-sky-500 text-xs leading-5">Seen</p>
               </div>
             </UserBlock.Tail>
@@ -71,7 +88,10 @@ function App() {
           {/* End of chats */}
         </div>
 
-        <Block absolute="left-0 bottom-0">
+        <Block
+          onClick={() => console.log("hello world")}
+          absolute="left-0 bottom-0"
+        >
           <Block.Icon>
             <CiSettings />
           </Block.Icon>
@@ -86,19 +106,32 @@ function App() {
       {/* Right Side */}
       <div className="w-3/4 h-full py-0.5 px-2 bg-slate-600 flex flex-col justify-between">
         <div className="w-full py-2 border-b-2 border-zinc-800">
-          <div className="w-full h-16 py-1 px-2 rounded-md bg-zinc-800 flex items-center">
-            <div className="w-12 h-12 min-w-[3rem] mr-2 rounded-full bg-slate-300 relative"></div>
-            <div className="w-full flex flex-col">
-              <p className="text-gray-200 text-lg space-x-1">
-                <span>Friend 1</span>
-                <span className="text-sm text-slate-400">Ver.</span>
-                <span className="text-sm text-slate-400">Muted</span>
-              </p>
-              <p className="text-gray-500 text-sm">last online - yesterday</p>
-            </div>
-            <div className="w-6 h-12 min-w-[1.5rem] mx-1 float-right rounded-lg bg-slate-300"></div>
-            <div className="w-6 h-12 min-w-[1.5rem] mx-1 float-right rounded-lg bg-slate-300"></div>
-          </div>
+          <UserBlock>
+            <UserBlock.Avatar name="Gravity Impulse" />
+            <UserBlock.Body>
+              <UserBlock.Content>
+                <span>
+                  {new Date().toLocaleDateString("en-US", {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+                  })}
+                </span>
+                <CiVolumeMute className="text-slate-400" />
+              </UserBlock.Content>
+              <UserBlock.SubContent>
+                last online - yesterday
+              </UserBlock.SubContent>
+            </UserBlock.Body>
+            <UserBlock.Tail>
+              <Block.Icon>
+                <CiSearch />
+              </Block.Icon>
+              <Block.Icon>
+                <CiMenuKebab />
+              </Block.Icon>
+            </UserBlock.Tail>
+          </UserBlock>
         </div>
 
         <div className="w-full h-full p-2 flex flex-col-reverse">
@@ -126,16 +159,19 @@ function App() {
           </div>
         </div>
 
-        <div className="w-full py-2">
-          <div className="w-full h-16 py-1 px-2 rounded-md bg-zinc-800 flex items-center">
-            <textarea
-              rows={2}
-              className="w-full h-4/5 py-0.5 px-2 mr-1 bg-transparent focus:border-none focus:outline-none text-gray-200"
-            />
-            <div className="w-8 h-8 min-w-[2rem] mx-1 float-right rounded-full bg-slate-300 relative"></div>
-            <div className="w-8 h-8 min-w-[2rem] mx-1 float-right rounded-full bg-slate-300 relative"></div>
-          </div>
-        </div>
+        <Block>
+          <textarea
+            rows={2}
+            placeholder="Message"
+            className="w-full h-4/5 py-0.5 px-2 mr-1 bg-transparent focus:border-none focus:outline-none text-gray-200"
+          />
+          <Block.Icon>
+            <CiFaceSmile />
+          </Block.Icon>
+          <Block.Icon>
+            <CiPaperplane />
+          </Block.Icon>
+        </Block>
       </div>
       {/* End of Right Side */}
     </div>

@@ -4,14 +4,14 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        wiggle: "wiggle 1s linear infinite",
+        wiggle: "wiggle 1.8s linear infinite",
       },
       keyframes: {
         wiggle: {
           "0%": { transform: "rotate(0deg)" },
-          "12%": { transform: "rotate(14deg)" },
+          "12%": { transform: "rotate(20deg)" },
           "24%": { transform: "rotate(0deg)" },
-          "36%": { transform: "rotate(-14deg)" },
+          "36%": { transform: "rotate(-20deg)" },
           "50%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(0deg)" },
         },
