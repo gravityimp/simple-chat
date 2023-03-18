@@ -2,6 +2,7 @@ import { Children } from "react";
 
 interface IChildren {
   children?: string | JSX.Element | JSX.Element[];
+  active?: boolean;
 }
 
 interface IUserBlock extends IChildren {
@@ -10,7 +11,7 @@ interface IUserBlock extends IChildren {
 }
 
 function UserBlock(props: IUserBlock) {
-  const { children, animate, hover } = props;
+  const { children, animate, hover, active } = props;
 
   return (
     <div
@@ -19,9 +20,9 @@ function UserBlock(props: IUserBlock) {
       }`}
     >
       <div
-        className={`w-full h-16 py-1 px-2 rounded-md bg-zinc-800 border-zinc-600 flex items-center ${
-          hover && "hover:border"
-        }`}
+        className={`w-full h-16 py-1 px-2 rounded-md ${
+          active ? "bg-cyan-600 border-sky-500" : "bg-zinc-800 border-zinc-600"
+        } flex items-center ${hover && "hover:border"}`}
       >
         {children}
       </div>
@@ -38,7 +39,7 @@ UserBlock.Body = Body;
 // Content of Body
 function Content(props: IChildren) {
   return (
-    <div className="text-gray-200 text-lg space-x-1 flex items-center">
+    <div className="text-gray-200 text-lg space-x-2 flex items-center">
       {props.children}
     </div>
   );
@@ -47,14 +48,17 @@ UserBlock.Content = Content;
 
 // Subcontent of Body
 function SubContent(props: IChildren) {
-  if (typeof props.children === "string") {
+  const { children, active } = props;
+  if (typeof children === "string") {
     const text =
-      props.children.length > 29
-        ? props.children.slice(0, 29) + "..."
-        : props.children;
-    return <p className="text-gray-500 text-sm">{text}</p>;
+      children.length > 29 ? children.slice(0, 29) + "..." : children;
+    return (
+      <p className={`text-sm ${active ? "text-gray-500" : "text-zinc-300"}`}>
+        {text}
+      </p>
+    );
   }
-  return <p className="text-gray-500 text-sm">{props.children}</p>;
+  return <p className="text-gray-500 text-sm">{children}</p>;
 }
 UserBlock.SubContent = SubContent;
 
