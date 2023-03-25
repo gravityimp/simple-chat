@@ -1,0 +1,32 @@
+[
+  {
+    "username": "localhost",
+    "displayName": "Localhost",
+    "description": "This is an example localhost account",
+    "image": ""
+  },
+  {
+    "username": "test1",
+    "displayName": "Test 1",
+    "description": "This is an example Test 1",
+    "image": ""
+  },
+  {
+    "username": "test2",
+    "displayName": "Test 2",
+    "description": "This is an example Test 2",
+    "image": ""
+  },
+  {
+    "username": "george",
+    "displayName": "George",
+    "description": "Hello, i am George!",
+    "image": ""
+  },
+  {
+    "username": "lissaa",
+    "displayName": "Lisa",
+    "description": "Let's be friends😊😊😊!",
+    "image": ""
+  }
+]

@@ -1,7 +1,7 @@
 import { Children } from "react";
 
 interface IChildren {
-  children?: string | JSX.Element | JSX.Element[];
+  children?: string | JSX.Element | JSX.Element[] | undefined;
   active?: boolean;
 }
 
@@ -51,7 +51,7 @@ function SubContent(props: IChildren) {
   const { children, active } = props;
   if (typeof children === "string") {
     const text =
-      children.length > 29 ? children.slice(0, 29) + "..." : children;
+      children.length > 26 ? children.slice(0, 26) + "..." : children;
     return (
       <p className={`text-sm ${active ? "text-gray-500" : "text-zinc-300"}`}>
         {text}

@@ -37,6 +37,19 @@ export function isSameDay(date1: Date, date2: Date): boolean {
   );
 }
 
+export function getMessageTime(date: Date): string {
+  if (isSameDay(date, new Date())) {
+    return date.toLocaleTimeString(navigator.language, {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  }
+  return date.toLocaleDateString(navigator.language, {
+    month: "numeric",
+    day: "numeric",
+  });
+}
+
 /* TEST CASES
 
 const lastOnline = new Date(); // current date and time

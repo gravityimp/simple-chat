@@ -1,0 +1,77 @@
+[
+  {
+    "type": "direct",
+    "users": ["localhost", "test1"],
+    "messages": [
+      {
+        "owner": "test1",
+        "content": "Hello there!",
+        "datetime": "Tue Mar 21 2023 11:16:32 GMT+0100",
+        "sent": true,
+        "seen": true
+      },
+      {
+        "owner": "localhost",
+        "content": "Hi, how are you?",
+        "datetime": "Tue Mar 21 2023 11:17:32 GMT+0100",
+        "sent": true,
+        "seen": true
+      },
+      {
+        "owner": "localhost",
+        "content": "I haven't heard from you for years)",
+        "datetime": "Tue Mar 21 2023 11:18:32 GMT+0100",
+        "sent": true,
+        "seen": true
+      },
+      {
+        "owner": "test1",
+        "content": "Yeah, XD",
+        "datetime": "Tue Mar 21 2023 11:18:52 GMT+0100",
+        "sent": true,
+        "seen": true
+      },
+      {
+        "owner": "test1",
+        "content": "I'm good, too much stuff happened)",
+        "datetime": "Tue Mar 21 2023 11:19:52 GMT+0100",
+        "sent": true,
+        "seen": true
+      },
+      {
+        "owner": "test1",
+        "content": "Wbu?",
+        "datetime": "Tue Mar 21 2023 11:19:32 GMT+0100",
+        "sent": true,
+        "seen": true
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "name": "quicktalks",
+    "messages": [
+      {
+        "owner": "test1",
+        "content": "Hello there!",
+        "datetime": "Tue Mar 21 2023 11:16:32 GMT+0100",
+        "sent": true,
+        "seen": true
+      },
+      {
+        "owner": "localhost",
+        "content": "Hello there!",
+        "datetime": "Tue Mar 21 2023 11:17:32 GMT+0100",
+        "sent": true,
+        "seen": true
+      },
+      {
+        "owner": "lissaa",
+        "content": "Hello there!",
+        "datetime": "Tue Mar 21 2023 11:18:32 GMT+0100",
+        "sent": true,
+        "seen": true
+      }
+    ]
+  }
+]

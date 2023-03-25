@@ -1,0 +1,10 @@
+[
+  {
+    "owner": "test1",
+    "displayName": "Quick talks",
+    "groupName": "quicktalks",
+    "image": "",
+    "verified": false,
+    "users": ["test1", "localhost", "lissaa"]
+  }
+]
